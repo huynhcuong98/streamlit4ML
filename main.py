@@ -1,6 +1,7 @@
 import streamlit as st 
 import numpy as np 
 import torch
+import pandas
 
 import matplotlib.pyplot as plt
 from sklearn import datasets
