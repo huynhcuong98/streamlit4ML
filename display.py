@@ -12,7 +12,6 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
 
 from sklearn.metrics import accuracy_score
-from display import display1
 def get_dataset(name):
 	    data = None
 	    if name == 'Iris':
@@ -102,22 +101,3 @@ def display1():
 	#plt.show()
 	st.pyplot(fig)
 
-st.title('Machine Learning class')
-
-method = st.sidebar.selectbox(
-	'Choose method',
-	('Your Dataset', 'Ours Dataset'))
-
-
-if method == 'Ours Dataset':
-	datatype = st.sidebar.selectbox(
-		'Select type of data',
-		('Number', 'Image'))
-	if datatype == 'Number':
-		display1()
-		
-	else:
-		dataset_name = st.sidebar.selectbox(
-		    'Select Dataset',
-		    ('MNIST', 'Cifar', )
-		)
