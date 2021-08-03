@@ -49,7 +49,7 @@ def get_classifier(clf_name, params):
 	            max_depth=params['max_depth'], random_state=1234)
 	    return clf
 
-def display1():
+def display_ML():
 	dataset_name = st.sidebar.selectbox(
 		    'Select Dataset',
 		    ('Iris', 'Breast Cancer', 'Wine')

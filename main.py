@@ -12,24 +12,47 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
 
 from sklearn.metrics import accuracy_score
-from display_ML import display1
+from display_ML import display_ML
+from display_DL import display_DL
 
-st.title('Machine Learning class')
-
-method = st.sidebar.selectbox(
+def Process_ML_page():
+	st.title('Machine Learning')
+	method = st.sidebar.selectbox(
 	'Choose method',
-	('Your Dataset', 'Ours Dataset'))
+	('Your Dataset', 'Example Dataset'))
+
+	if method == 'Example Dataset':
+		datatype = st.sidebar.selectbox(
+			'Select type of data',
+			('Number', 'Image'))
+		if datatype == 'Number':
+			display_ML()
+		else:
+			dataset_name = st.sidebar.selectbox(
+				'Select Dataset',
+				('MNIST', 'Cifar', )
+			)
+
+def Process_DL_page():
+	st.title('Deep Learning')
+	display_DL()
 
 
-if method == 'Ours Dataset':
-	datatype = st.sidebar.selectbox(
-		'Select type of data',
-		('Number', 'Image'))
-	if datatype == 'Number':
-		display1()
+
+
+
+type = st.sidebar.selectbox(
+	'Choose Type',
+	('Machine Learning', 'Deep learning'))
+
+if type == 'Machine Learning':
+	Process_ML_page()
+else:
+	Process_DL_page()
+
+
+
+
+
+
 		
-	else:
-		dataset_name = st.sidebar.selectbox(
-		    'Select Dataset',
-		    ('MNIST', 'Cifar', )
-		)
