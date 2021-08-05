@@ -15,6 +15,8 @@ from sklearn.metrics import accuracy_score
 from display_ML import display_ML
 from display_DL import display_DL
 
+
+# @st.cache(persist=True)
 def Process_ML_page():
 	st.title('Machine Learning')
 	method = st.sidebar.selectbox(
@@ -24,8 +26,8 @@ def Process_ML_page():
 	if method == 'Example Dataset':
 		datatype = st.sidebar.selectbox(
 			'Select type of data',
-			('Number', 'Image'))
-		if datatype == 'Number':
+			('Numberic', 'Image'))
+		if datatype == 'Numberic':
 			display_ML()
 		else:
 			dataset_name = st.sidebar.selectbox(
@@ -33,6 +35,7 @@ def Process_ML_page():
 				('MNIST', 'Cifar', )
 			)
 
+# @st.cache(persist=True)
 def Process_DL_page():
 	st.title('Deep Learning')
 	display_DL()
@@ -40,7 +43,7 @@ def Process_DL_page():
 
 
 
-
+st.sidebar.title('Your Choice')
 type = st.sidebar.selectbox(
 	'Choose Type',
 	('Machine Learning', 'Deep learning'))
